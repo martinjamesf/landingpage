@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drag, Resize, and Label Containers</title>
+</head>
+<body>
+  <div id="container">
+    <div id="label">This is a label.</div>
+  </div>
+  <script>
+    var container = document.getElementById("container");
+    var label = document.getElementById("label");
+    
+    // Make the container draggable.
+    container.addEventListener("mousedown", function(event) {
+      this.style.cursor = "move";
+      var offset = event.clientX - this.offsetLeft;
+      document.onmousemove = function(event) {
+        this.style.left = event.clientX - offset + "px";
+      };
+    });
+    
+    // Make the label resizable.
+    label.addEventListener("mousedown", function(event) {
+      this.style.cursor = "se-resize";
+      var offset = event.clientY - this.offsetTop;
+      document.onmousemove = function(event) {
+        this.style.height = event.clientY - offset + "px";
+      };
+    });
+    
+    // Make the label editable.
+    label.addEventListener("click", function() {
+      this.contentEditable = true;
+    });
+  </script>
+</body>
+</html> 
