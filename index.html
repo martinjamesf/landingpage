@@ -1,133 +1,206 @@
-<!doctype html>
-<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
-<html class="no-js" lang="en" dir="ltr">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A tool to understand the needs of our new landing page">
-<title>Landing Page UI Configurator</title>
-<link href="main.css" rel="stylesheet" id="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-</head>
-
-<body class="bg-off-white take-up-the-entire-page-height luna-nmc_shell-has_utility_rail">
-<header id="px-header" class="luna">
-  <div class="nmc-global-header" data-nmxp-global-header="true">
-    <div class="nmc-global-header-container">
-      <div id="nm-logo"> 
-          <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="28" viewBox="0 0 33 28">
-          <path fill="#DFE6EB" fill-rule="evenodd"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page UI Configurator</title>
+    <link href="main.css" rel="stylesheet" id="text/css" />
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            position: absolute;
+            border: 2px solid #000;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            user-select: none;
+        }
+        .label {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #000;
+            user-select: none;
+        }
+        #addButton {
+            /*position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;*/
+            cursor: pointer;
+            user-select: none;
+        }
+        .button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border-style: solid;
+            cursor: pointer;
+            font-family: "Guardian Sans Text", "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: normal;
+            line-height: normal;
+            margin: 0 0 1.25rem;
+            position: relative;
+            text-align: center;
+            letter-spacing: 0.025em;
+            border-radius: 0.25rem;
+            text-decoration: none !important;
+            display: inline-block;
+            padding: 0.75rem 1rem 0.8125rem;
+            font-size: 0.875rem;
+            border-width: 1px;
+            background-color: #00ABD3;
+            border-color: #00ABD3;
+            color: #FFFFFF; 
+        }
+        #nmc-footer-root {
+            margin-top:auto !important;
+        }
+    </style>
+  </head>
+  <body class="bg-off-white take-up-the-entire-page-height">
+    <!-- Luna Header -->
+    <header id="px-header" class="luna">
+      <div class="nmc-global-header" data-nmxp-global-header="true">
+        <div class="nmc-global-header-container">
+          <div id="nm-logo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="33"
+              height="28"
+              viewBox="0 0 33 28"
+            >
+              <path
+                fill="#DFE6EB"
+                fill-rule="evenodd"
                 d="M36.0941368,40.6483671 C38.550684,40.6483671 40.6969381,44.5870847 41.059544,50.7171565 L41.1319218,50.7243061 C41.4715961,49.4895692 41.6206515,48.1847662 41.5855375,46.8856829 C41.5855375,42.4171795 39.4715309,38.4670224 36.6301629,38.4670224 C33.9600651,38.4670224 33.7278827,40.6748206 34.3642345,41.645737 C34.6193485,41.3054158 35.0901629,40.6483671 36.0941368,40.6483671 Z M38.8165472,51.7860225 C38.9469707,51.216199 39.0315309,50.7764982 39.0315309,50.0036259 C39.0315309,47.2174246 37.3489251,42.6316676 34.1241694,42.6316676 C31.6712052,42.6316676 31.3272313,44.9710186 32.1147883,45.7174374 C32.3475372,44.9771422 33.0428687,44.4795813 33.8203257,44.4969997 C36.4158958,44.4969997 38.3536156,48.5865741 38.754202,51.7860225 L38.8165472,51.7860225 Z M54.9474919,41.645737 C55.2033225,41.2896867 55.305798,40.8285371 55.305798,40.5175293 C55.305798,39.4508082 54.3039739,38.4226949 52.8306189,38.4226949 C48.5495765,38.4226949 46.9615635,45.8968925 48.1884039,50.6656793 L48.2450163,50.6656793 C48.6678176,44.1159257 50.7667752,40.5990348 53.1659935,40.5990348 C54.4136156,40.5990348 54.8428664,41.339019 54.9474919,41.645737 Z M55.108013,42.6516865 C51.0627362,42.6516865 49.5793485,49.4352322 50.3948534,51.7917422 L50.4471661,51.7917422 C50.9208469,48.3542119 52.7854723,44.5134438 55.305798,44.5134438 C56.6587622,44.5134438 57.0299674,45.3535225 57.0808469,45.7260169 C57.945798,44.8108674 57.4291205,42.6516865 55.108013,42.6516865 Z M45.3778502,54.0646018 C42.9571336,54.0646018 40.4396743,54.6437198 38.3765472,55.9356536 L38.4030619,56 C39.4041694,55.8462835 41.8463844,55.5703087 44.8432573,55.5703087 C48.1504235,55.5703087 49.3407166,56 49.8932248,56 C50.2658632,56 50.4364169,55.7905166 50.4364169,55.4459056 C50.4364169,54.496438 48.0271661,54.0646018 45.3778502,54.0646018 Z M45.3778502,51.5329265 C43.3118567,51.5329265 40.482671,52.0720067 38.3765472,53.3989735 L38.4030619,53.4668948 C39.2414984,53.3496412 41.9187622,52.9964507 44.9457329,52.9964507 C47.8150489,52.9964507 49.4589577,53.4668948 49.8932248,53.4668948 C50.2658632,53.4668948 50.4364169,53.2545515 50.4364169,52.9149452 C50.4364169,51.958328 48.0271661,51.5329265 45.3778502,51.5329265 Z M54.9568078,35.2925976 C54.6486645,35.3455047 54.2172638,35.810944 54.2172638,36.5058857 C54.2172638,37.2994919 54.8034528,38.8967137 57.0729642,38.8967137 C59.4162866,38.8967137 61,37.1600746 61,34.7814008 C61,32.4506294 59.2915961,30.2928785 55.5465798,30.2928785 C51.0849511,30.2928785 45.3513355,34.2659143 45.3513355,43.9250313 C45.3556352,45.7689145 45.5770684,47.7822434 46.0249511,49.9578684 L46.1044951,49.9578684 C46.1044951,38.0880934 50.5646906,32.4913822 55.3846254,32.4913822 C57.4513355,32.4913822 58.5778502,33.7983301 58.5778502,35.1610449 C58.5778502,36.4129408 57.8325733,37.3080714 56.6458632,37.3080714 C55.1846906,37.3080714 54.734658,36.0497408 54.9568078,35.2918826 L54.9568078,35.2925976 Z M34.0396091,36.7411077 C33.8712052,37.0363864 33.3638436,37.4918163 32.4515961,37.4918163 C31.3272313,37.4918163 30.4035179,36.5695171 30.4035179,35.2518449 C30.4035179,34.0743048 31.4426059,32.8674514 33.2821498,32.8674514 C37.8441042,32.8674514 43.1943322,39.4107704 43.2602606,47.7457805 C43.2602606,48.2727064 43.2265798,49.2000102 43.1348534,49.9550086 L43.2100977,49.9693078 C43.7002606,48.5393867 44.0836482,46.3065649 44.0836482,44.7400863 C44.0836482,37.477517 39.1089251,30.5023619 33.2434528,30.5023619 C29.7635831,30.5023619 28,32.8045349 28,34.8207236 C28,37.1178919 29.3572638,38.8616807 31.4676873,38.8616807 C33.1230619,38.8616807 34.0403257,37.6641217 34.0403257,36.7411077 L34.0396091,36.7411077 Z M33.4190228,28 C32.9661238,28 32.7167427,28.235937 32.7167427,28.5712535 C32.7167427,28.9873605 32.9861889,29.195414 33.522215,29.4149069 C35.1460586,30.0755305 38.2468404,30.4751934 41.7539414,30.4801981 C47.9619544,30.4801981 54.3039739,29.5986518 57.1145277,28.4682992 L57.0951792,28.3960881 C54.8091857,28.5462299 50.8714007,28.8064755 44.579544,28.8064755 C36.012443,28.8064755 34.2187622,28 33.4190228,28 Z M38.3579153,31.2423461 L38.3500326,31.3095524 C39.0809772,31.5776626 42.4891857,33.0719301 43.989772,38.6707862 C44.0757655,39.0025279 44.2420195,39.1319358 44.4699023,39.1319358 C44.8296417,39.1319358 44.9829967,38.8674004 44.9829967,38.3790823 C44.9829967,35.7608968 43.5598046,33.4444246 42.2971336,32.4377601 C41.0387622,31.4196563 39.360456,31.17228 38.3579153,31.2423461 Z M46.7652117,32.0709854 C47.8343974,30.936343 49.4188274,30.5159462 51.0763518,30.6710926 L51.0806515,30.736154 C50.5381759,30.8870107 49.2231922,31.3660343 47.9203909,32.7423333 C46.8383062,33.8919899 46.0865798,35.2797283 45.7117915,36.5058857 C45.2932899,34.1965631 46.0543322,32.8309884 46.7652117,32.0709854 Z"
-                transform="translate(-28 -28)"> </path>
-        </svg>
-            </a> 
+                transform="translate(-28 -28)"
+              ></path>
+            </svg>
+          </div>
+        </div>
       </div>
-      <!--<div class="luna-layout--top_bar_utility">
-        <button>Print Me!</button>
-      </div>-->
-    </div>
-  </div>
-</header>
-<div class="page-container">
-  <div class="row">
-    <div class="columns medium-2">
-      <div id="card-column" class="padding-medium">
-        <p><strong>Instructions</strong></p>
-        <p>Drag a container on to the canvas. Click on the container and add a label or description. Once complete, take a screenshot and send it to the team.</p>  
-        <hr>
-        <!--<div class="cardMachine">-->
-          <ul class="cards droptrue"></ul>
-        <!--</div>-->
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="page-container take-up-the-entire-page-height">
+      <div class="row">
+        <div class="columns small-4 medium-3 large-2">
+          <div id="card-column" class="padding-medium">
+            <p><strong>Instructions</strong></p>
+            <p>Add a container to the canvas and double-click to add a label or description. Once added, organize and resize to create your layout. Take a screenshot and send it to the team.</p>
+            <!--Card Mechanism -->
+            <div><button id="addButton" class="button">Add Container</button></div>
+            <script>
+                let containerCount = 0;
+        
+                function createContainer() {
+                    const container = document.createElement('div');
+                    container.className = 'container';
+                    container.id = `draggableContainer-${containerCount}`;
+                    container.style.left = '300px';
+                    container.style.top = '200px';
+        
+                    const label = document.createElement('div');
+                    label.className = 'label';
+                    label.textContent = `Container ${containerCount + 1}`;
+        
+                    container.appendChild(label);
+        
+                    containerCount++;
+        
+                    document.body.appendChild(container);
+        
+                    initializeDragResizeLabel(container, label);
+                }
+        
+                function initializeDragResizeLabel(container, label) {
+                    let isDragging = false;
+                    let isResizing = false;
+                    let dragStartX, dragStartY;
+                    let containerStartWidth, containerStartHeight;
+        
+                    container.addEventListener('mousedown', (e) => {
+                        if (e.offsetX > container.offsetWidth - 10 && e.offsetY > container.offsetHeight - 10) {
+                            // Clicked on the border; initiate resizing
+                            isResizing = true;
+                            dragStartX = e.clientX;
+                            dragStartY = e.clientY;
+                            containerStartWidth = container.offsetWidth;
+                            containerStartHeight = container.offsetHeight;
+                        } else {
+                            // Clicked inside the container; initiate dragging
+                            isDragging = true;
+                            dragStartX = e.clientX - container.offsetLeft;
+                            dragStartY = e.clientY - container.offsetTop;
+                        }
+                    });
+        
+                    document.addEventListener('mousemove', (e) => {
+                        if (isDragging) {
+                            container.style.left = (e.clientX - dragStartX) + 'px';
+                            container.style.top = (e.clientY - dragStartY) + 'px';
+                        }
+                        if (isResizing) {
+                            const newWidth = containerStartWidth + (e.clientX - dragStartX);
+                            const newHeight = containerStartHeight + (e.clientY - dragStartY);
+                            container.style.width = `${Math.max(newWidth, 100)}px`;
+                            container.style.height = `${Math.max(newHeight, 50)}px`;
+                        }
+                    });
+        
+                    document.addEventListener('mouseup', () => {
+                        isDragging = false;
+                        isResizing = false;
+                    });
+        
+                    // Labeling functionality
+                    label.addEventListener('dblclick', () => {
+                        const newLabel = prompt('Enter a new label:');
+                        if (newLabel !== null && newLabel.trim() !== '') {
+                            label.textContent = newLabel;
+                        }
+                    });
+                }
+        
+                const addButton = document.getElementById('addButton');
+                addButton.addEventListener('click', createContainer);
+            </script>
+            <br>
+            <p><strong>Functions:</strong></p>
+            <ul>
+                <li>Label - Double-click on container, enter label, click ok</li>
+                <li>Move - Click drag the container</li>
+                <li>Resize - Click and drag the lower right corner</li>
+            </ul>
+            </p>
+            <hr />
+          </div>
+        </div>
+        <div class="columns small-8 medium-9 large-10 text-center">
+          <h1 class="padding-top-large">
+            How do we meet the advisor, where they are, every single day?
+          </h1>
+          <h4 class="h4">
+            If we had only one landing page, what would need to see at the start
+            and end of each day?
+          </h4>
+        </div>
       </div>
     </div>
-    <div class="columns medium-10 text-center">
-      <h1 class="padding-top-large">How do we meet the advisor, where they are, every single day?</h1>
-      <h4 class="h2">If the advisor had one landing page experience, what are the six most important things the would need to see and do at the end of each day?</h4>
+
+    <!-- Luna Footer -->
+    <div id="nmc-footer-root">
+      <footer id="nmc-footer">
+        <div class="nmc-footer-container">
+          <span>Landing Page UI Configurator</span>
+        </div>
+      </footer>
     </div>
-  </div>
-</div>
-<div id="nmc-footer-root">
-  <footer id="nmc-footer">
-    <div class="nmc-footer-container nmc-footer-legal"><span>UI Configurator Tool</span></div>
-  </footer>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-
-      var allcards = ", , , , , ";
-      
-      var cards = allcards.split(',');
-      shuffle(cards);
-      for (i = 0; i < cards.length; i++) {
-
-        $('.cards').append('<li class="card" id="label" contenteditable="true" data-value="' + cards[i] + '">' + cards[i] + '</li>');
-
-      }
-      $(".cards").sortable();
-
-      $("ul.droptrue").sortable({
-        connectWith: "ul"
-      });
-
-      $("ul.dropfalse").sortable({
-        connectWith: "ul",
-        dropOnEmpty: true
-      });
-
-      $(".cards").disableSelection();
-
-      $(".cards").disableSelection();
-      $(".card").draggable({ snap: ".column" });
-      $(".card").draggable({
-        start: function () {
-          $(this).addClass('active');
-        },
-        stop: function () {
-          $(this).removeClass('active');
-        }
-      });
-      
-      function shuffle(array) {
-        var i = 0
-          , j = 0
-          , temp = null
-
-        for (i = array.length - 1; i > 0; i -= 1) {
-          j = Math.floor(Math.random() * (i + 1))
-          temp = array[i]
-          array[i] = array[j]
-          array[j] = temp
-        }
-      }
-      var label = document.getElementByID("label");
-
-      // Make the label editable.
-      label.addEventListener("click", function () {
-        this.contentEditable = true;
-      });
-      // Make the label resizable.
-      label.addEventListener("mousedown", function (event) {
-      this.style.cursor = "se-resize";
-      var offset = event.clientY - this.offsetTop;
-      document.onmousemove = function (event) {
-        this.style.height = event.clientY - offset + "px";
-      }; });
-
-    });
-
-  </script> 
-<script>
- // Make the label resizable.
-    label.addEventListener("mousedown", function (event) {
-      this.style.cursor = "se-resize";
-      var offset = event.clientY - this.offsetTop;
-      document.onmousemove = function (event) {
-        this.style.height = event.clientY - offset + "px";
-      };
-    });
-  </script>
-</body>
+  </body>
 </html>
