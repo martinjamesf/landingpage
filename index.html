@@ -9,6 +9,9 @@
         body {
             margin: 0;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .container {
             position: absolute;
@@ -58,12 +61,27 @@
             border-color: #00ABD3;
             color: #FFFFFF; 
         }
-        #nmc-footer-root {
-            margin-top:auto !important;
+        header{
+          height:10vh;
+          display: flex;
+          flex-direction: column;
+        }
+        .page-container, #card-column {
+          height:80vh;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        footer {
+            height:10vh;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            bottom: 0;
         }
     </style>
   </head>
-  <body class="bg-off-white take-up-the-entire-page-height">
+  <body class="bg-off-white">
     <!-- Luna Header -->
     <header id="px-header" class="luna">
       <div class="nmc-global-header" data-nmxp-global-header="true">
@@ -88,9 +106,9 @@
     </header>
 
     <!-- Main Content Container -->
-    <div class="page-container take-up-the-entire-page-height">
+    <div class="page-container">
       <div class="row">
-        <div class="columns small-4 medium-3 large-2">
+        <div class="columns small-5 medium-3 large-2">
           <div id="card-column" class="padding-medium">
             <p><strong>Instructions</strong></p>
             <p>Add a container to the canvas and double-click to add a label or description. Once added, organize and resize to create your layout. Take a screenshot and send it to the team.</p>
@@ -182,7 +200,7 @@
             <hr />
           </div>
         </div>
-        <div class="columns small-8 medium-9 large-10 text-center">
+        <div class="columns small-7 medium-9 large-10 text-center">
           <h1 class="padding-top-large">
             How do we meet the advisor, where they are, every single day?
           </h1>
@@ -195,12 +213,10 @@
     </div>
 
     <!-- Luna Footer -->
-    <div id="nmc-footer-root">
-      <footer id="nmc-footer">
-        <div class="nmc-footer-container">
-          <span>Landing Page UI Configurator</span>
-        </div>
-      </footer>
-    </div>
+    <footer id="nmc-footer">
+      <div class="nmc-footer-container">
+        <span>Landing Page UI Configurator</span>
+      </div>
+    </footer>
   </body>
 </html>
