@@ -2519,7 +2519,7 @@ label.error {
     line-height: 1;
     font-weight: normal;
     font-style: normal;
-    speak: none;
+    speak-as: none;
     text-decoration: inherit;
     text-transform: none;
     text-rendering: auto;
@@ -3035,7 +3035,7 @@ body.modal-active {
 .filter-nav-entry {
   cursor: pointer;
   display: inline-block;
-  float: left;
+  /*float: left;*/
   margin-right: 0.25rem;
   font-size: 0.875rem;
   border-radius: 0.25rem;
@@ -3612,7 +3612,7 @@ ul.keyval-chart {
     line-height: 1;
     font-weight: normal;
     font-style: normal;
-    speak: none;
+    speak-as: none;
     text-decoration: inherit;
     text-transform: none;
     text-rendering: auto;
@@ -3991,7 +3991,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 60%;
     line-height: 0; }
 
-h1 {
+h1, .h1 {
   font-size: 1.75rem;
   line-height: 1.75rem;
   font-weight: 100; }
@@ -4000,7 +4000,7 @@ h1 {
       font-size: 2.25rem;
       line-height: 2.25rem; } }
 
-h2 {
+h2, .h2 {
   font-size: 1.625rem;
   line-height: 1.625rem; }
   @media only screen and (min-width: 40.0625em) {
@@ -4008,7 +4008,7 @@ h2 {
       font-size: 1.75rem;
       line-height: 2.125rem; } }
 
-h3 {
+h3, .h3 {
   font-size: 1.25rem;
   line-height: 1.4375rem;
   font-weight: normal; }
@@ -4017,20 +4017,20 @@ h3 {
       font-size: 1.5rem;
       line-height: 1.75rem; } }
 
-h4 {
+h4, .h4 {
   font-size: 1.125rem;
   line-height: 1.375rem; }
   @media only screen and (min-width: 40.0625em) {
     h4 {
       font-size: 1.25rem; } }
 
-h5 {
+h5, .h5 {
   font-size: 1rem;
   line-height: 1.375rem;
   font-family: "Guardian Sans Text", "Helvetica Neue", Helvetica, sans-serif;
   font-weight: bold; }
 
-h6 {
+h6, .h6 {
   font-size: 0.875rem;
   line-height: 1.125rem;
   font-family: "Guardian Sans Text", "Helvetica Neue", Helvetica, sans-serif;
@@ -5184,7 +5184,6 @@ body#nmc-footer-body {
 .nmc-header-working-as-tag {
     display: inline-block;
     position: relative;
-    float: right;
 }
 
 .cardMachine {
