@@ -124,10 +124,10 @@
         <div class="columns small-5 medium-3 large-2">
           <div id="card-column" class="padding-medium">
             <p><strong>Instructions</strong></p>
-            <p>Step 1. Add a container to the canvas. Organize, label, and resize as many containers as you'd like to create the ultimate layout.</p>
+            <p><strong>Step 1.</strong> Add a container to the canvas. Organize, label, and resize as many containers as you'd like to create the ultimate layout.</p>
             
             <!-- Add Container -->
-            <div><button id="addButton" class="button">Add</button></div>
+            <div><button id="addButton" class="button">Add Container</button></div>
             <script>
                 let containerCount = 0;
         
@@ -211,21 +211,21 @@
             </p>
             
           <!-- Print Screen -->
-          <p>Step 2. Take a screenshot</p>
-          <div><button onclick="captureA()" id="captureButton" type="button" class="button">Capture</button></div>
+          <p><strong>Step 2.</strong> Take a screenshot</p>
+          <div><button onclick="captureA()" id="captureButton" type="button" class="button">Capture Screenshot</button></div>
           <script type="text/javascript">
             function captureA () {
             html2canvas(document.body).then(canvas => {
               let a = document.createElement("a");
               a.download = "LandingPage_EnterYourName.png";
               a.href = canvas.toDataURL("image/png");
-              a.click();
+              a.click(); // MAY NOT ALWAYS WORK!
             });
           }
            </script>
            <br>
-          <p>Step 3. Send it to the team.</p>
-          <div><a class="button" href="mailto:jamesmartin@northwesternmutual.com,kristindelahanty@northwesternmutual.com?subject=Sending%20back%20the%20Ultimate%20Advisor%20Landing%20Page&body=Don't%20forget%20to%20attach%20your%20screenshot%20and%20a%20note%2C%20if%20you%20like.">Email</a></div>
+          <p><strong>Step 3.</strong> Send it to the team.</p>
+          <div><a class="button" href="mailto:jamesmartin@northwesternmutual.com,kristindelahanty@northwesternmutual.com?subject=Sending%20back%20the%20Ultimate%20Advisor%20Landing%20Page&body=Don't%20forget%20to%20attach%20your%20screenshot%20and%20a%20note%2C%20if%20you%20like.">Email Team</a></div>
           </div>
         </div>
         <!-- Footer -->
