@@ -91,17 +91,8 @@
         }
         
     </style>
-    <!-- Hotjar Tracking Code for Landing Page UI Configurator -->
-    <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:3584942,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
+    <script text="text/javascript" src="html2canvas.min.js"></script>
+    <script text="text/javascript" src="canvas2image.js"></script>
   </head>
   <body class="bg-off-white">
     <!-- Luna Header -->
@@ -128,13 +119,14 @@
     </header>
 
     <!-- Main Content Container -->
-    <div class="page-container">
+    <div id="cbwrap" class="page-container">
       <div class="row">
         <div class="columns small-5 medium-3 large-2">
           <div id="card-column" class="padding-medium">
             <p><strong>Instructions</strong></p>
-            <p>Add a container to the canvas and double-click to add a label or description. Once added, organize and resize to create your layout. Take a screenshot and send it to the team.</p>
-            <!--Card Mechanism -->
+            <p>Step 1. Add a container to the canvas. Once added, you can organize,label, and resize as many containers you'd like to create your dream layout.</p>
+            
+            <!-- Add Container -->
             <div><button id="addButton" class="button">Add Container</button></div>
             <script>
                 let containerCount = 0;
@@ -205,24 +197,40 @@
                         if (newLabel !== null && newLabel.trim() !== '') {
                             label.textContent = newLabel;
                         }
-                    });
+                    });                    
                 }
-        
+                
                 const addButton = document.getElementById('addButton');
                 addButton.addEventListener('click', createContainer);
             </script>
-            <br>
             <p><strong>Functions:</strong></p>
             <ul>
-                <li>Label - Double-click on container, enter label, click ok</li>
-                <li>Move - Click drag the container</li>
-                <li>Resize - Click and drag the lower right corner</li>
+                <li>Label - Double-click on container</li>
+                <li>Move - Drag from the center</li>
+                <li>Resize - Drag the lower right corner</li>
             </ul>
             </p>
-            <hr />
+            
+          <!-- Print Screen -->
+          <p>Step 2. Take a screenshot</p>
+          <div><button onclick="captureA()" id="captureButton" type="button" class="button">Capture Screenshot</button></div>
+          <script type="text/javascript">
+            function captureA () {
+            html2canvas(document.body).then(canvas => {
+              let a = document.createElement("a");
+              a.download = "LandingPage_EnterYourName.png";
+              a.href = canvas.toDataURL("image/png");
+              a.click(); // MAY NOT ALWAYS WORK!
+            });
+          }
+           </script>
+           <br>
+          <p>Step 3. Send it to the team.</p>
+          <div><a class="button" href="mailto:jamesmartin@northwesternmutual.com,kristindelahanty@northwesternmutual.com?subject=Sending%20back%20the%20Ultimate%20Advisor%20Landing%20Page&body=Don't%20forget%20to%20attach%20your%20screenshot%20and%20a%20note%2C%20if%20you%20like.">Email Team</a></div>
           </div>
         </div>
-        <div class="columns small-7 medium-9 large-10 text-center">
+        <!-- Footer -->
+        <div class="specific columns small-7 medium-9 large-10 text-center">
           <h1 class="padding-top-large">
             How do we meet the advisor, where they are, every single day?
           </h1>
